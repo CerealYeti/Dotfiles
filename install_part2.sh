@@ -9,4 +9,4 @@ cp ./.tmux.conf ../
 # install thefuck
 pip3 install thefuck
 
-source ~/.zshrc
+source ../.zshrc
