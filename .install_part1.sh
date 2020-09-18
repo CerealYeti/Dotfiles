@@ -8,7 +8,7 @@ apt-get upgrade -y
 apt-get remove -y vim.tiny
 
 # make sure basic stuff is installed is installed
-apt-get install -y git wget curl net-tools vim tmux
+apt-get install -y git wget curl net-tools vim tmux cmake
 
 # install python stuff
 apt-get install -y python3 python3-dev python3-pip python3-setuptools
