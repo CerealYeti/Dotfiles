@@ -1,84 +1,102 @@
-set nocompatible              " required
-filetype off                  " required
+set nocompatible
+filetype off
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'frazrepo/vim-rainbow'
+Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdcommenter'
+Plugin 'tpope/vim-eunuch'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kyoz/purify', { 'rtp': 'vim' }
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-Plugin 'joshdick/onedark.vim'
-Plugin 'kien/ctrlp.vim'
-" ...
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-set encoding=utf-8
-let mapleader='`'
-colorscheme onedark
-
-set splitbelow
-set splitright
-
-set number
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
-
-let python_hightlight_all=1
+call vundle#end()
+filetype plugin indent on
 syntax on
+colorscheme purify
 
-" Indentation
-au BufRead,BufNewFile *.py
-			\setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+let g:rainbow_active = 1
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
 
-highlight BadWhitespace ctermbg=red guibg=red
-" Marking bad whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+let g:multi_cursor_use_default_mapping = 1
 
-" Plugin Settings
-" SimplyFold
-let g:SimpylFold_docstring_preview=1
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completionn=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+set hidden
+set nowrap
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set backspace=indent,eol,start
 
-" NerdTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+set autoindent
+set copyindent
+set number
+set shiftround
+set showmatch
+set ignorecase
+set smartcase
 
-" Virtual Environment Support
-py3 3
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV'in os.environ:
-	project_base_dir = os.environ['VIRTUAL_ENV']
-	activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-	execfile(activate_this, dict(__file__=activate_this))
-EOF
+set smarttab
 
+set hlsearch
+set incsearch
+
+set history=1000
+set undolevels=1000
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title
+set visualbell
+set noerrorbells
+
+set nobackup
+set noswapfile
+
+let mapleader="'"
+nmap <leader>ve :e $MYVIMRC<CR>
+nmap <leader>vr :so $MYVIMRC<CR>
+
+inoremap jj <ESC>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <leader>ss :setlocal spell!<cr>
+
+vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+vnoremap $q <esc>`>a'<esc>`<i'<esc>
+vnoremap $e <esc>`>a`<esc>`<i`<esc>
+
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+inoremap $t <><esc>i
+
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+set pastetoggle=<F2>
+nnoremap ; :
+
+vmap Q gq
+vmap Q gqap
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+cmap w!! w !sudo tee % >/dev/null
