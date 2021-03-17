@@ -2,7 +2,6 @@ snapd
 flameshot
 emacs
 colordiff
-git
 fonts-firacode
 openvpn
 wireshark
