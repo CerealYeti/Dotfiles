@@ -1,0 +1,9 @@
+fcitx-sunpinyin
+libsunpinyin3v5
+sunpinyin-data
+org.deepin.browser
+deepin-music
+deepin-mail
+deepin-album
+vim.tiny
+libreoffice-*
