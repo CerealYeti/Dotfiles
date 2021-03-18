@@ -1,0 +1,3 @@
+mailspring
+wps-office
+intellij-idea-ultimate-edition
