@@ -4,8 +4,8 @@ if [[ $(id -u) -ne 0 ]];
 	exit
 fi
 
-pacman -Syy
-pacman -Syu
+pacman -Syy --noconfirm
+pacman -Syu --noconfirm
 
 xargs -a packages/pacman-install.txt pacman -S --needed --noconfirm
 
@@ -13,8 +13,9 @@ go get -u github.com/cheat/cheat/cmd/cheat
 
 cd /opt
 git clone https://aur.archlinux.org/yay.git
+chown -R $SUDO_USER ./yay
 cd ./yay
-makepkg -si
+su $SUDO_USER -c 'makepkg -si'
 
 yay -Syu --devel --timeupdate
 
