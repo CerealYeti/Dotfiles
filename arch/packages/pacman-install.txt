@@ -1,0 +1,13 @@
+base-devel
+emacs
+flameshot
+ttf-fira-code
+openvpn
+vim
+wireshark-qt
+nmap
+rhythmbox
+firefox-developer-edition
+youtube-dl
+go
+jre-openjdk
