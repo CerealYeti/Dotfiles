@@ -21,6 +21,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 set wildignore=*.o,*~,*.pyc,*/.git,*/.hg/*,*/.svn/*,*/.DS_Store
 
 set ruler
+set number
 
 set cmdheight=1
 
@@ -52,7 +53,8 @@ set tm=500
 
 syntax enable
 
-try colorscheme elflord
+try 
+    colorscheme elflord
 catch
 endtry
 
