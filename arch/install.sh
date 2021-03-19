@@ -1,24 +1,17 @@
 #!/bin/bash
-if [[ $(id -u) -ne 0 ]];
-	then echo "Please run as root"
-	exit
-fi
 
-pacman -Syy --noconfirm
-pacman -Syu --noconfirm
+CURRENT_DIR=$(pwd)
 
-xargs -a packages/pacman-install.txt pacman -S --needed --noconfirm
+sudo ./.sudo-install.sh
 
+echo "installing cheat through go"
 go get -u github.com/cheat/cheat/cmd/cheat
 
-cd /opt
-git clone https://aur.archlinux.org/yay.git
-chown -R $SUDO_USER ./yay
-cd ./yay
-su $SUDO_USER -c 'makepkg -si'
-
+echo "installing aur packages"
 yay -Syu --devel --timeupdate
+xargs -a ./packages/aur-install.txt yay -S --noconfirm
+./.intellij-install.sh
 
-xargs -a packages/aur-install.txt yay -S --noconfirm
+sudo su -c 'pacman -Rns $(pacman -Qtdq)'
 
-pacman -Rcs $(pacman -Qdtq)
+cp ../configs/.vimrc ~/

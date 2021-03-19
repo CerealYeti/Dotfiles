@@ -11,3 +11,4 @@ firefox-developer-edition
 youtube-dl
 go
 jre-openjdk
+yay
