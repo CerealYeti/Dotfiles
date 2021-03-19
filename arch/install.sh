@@ -13,4 +13,7 @@ sudo ./.cheat-install.sh
 sudo su -c 'pacman -Rns $(pacman -Qtdq)'
 
 echo "export PATH=$PATH:/opt/bin" >> ~/.bashrc
+
+/opt/jetbrains-toolbox/jetbrains-toolbox
+
 cp ../configs/.vimrc ~/
