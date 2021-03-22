@@ -1,0 +1,2 @@
+ #use '#' or ';' to comment out packages for install
+ intellij-idea-ultimate

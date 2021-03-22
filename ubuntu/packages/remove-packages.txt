@@ -1,0 +1,8 @@
+# list packages here that should be automatically removed use '#' or ';' to stop packages from being removed
+mpv
+konsole
+kwrite
+kwalletmanager
+konqueror
+ksysguard
+byobu

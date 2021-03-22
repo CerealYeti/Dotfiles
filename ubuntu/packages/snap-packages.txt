@@ -1,0 +1,7 @@
+#use '#' or ';' to comment packages out
+firefox
+brave
+htop
+wps-office
+cheat
+;mailspring

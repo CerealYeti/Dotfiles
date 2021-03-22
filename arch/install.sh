@@ -6,7 +6,7 @@ echo "installing aur packages"
 yay -Syu --devel --timeupdate
 xargs -a ./packages/aur-install.txt yay -S --noconfirm
 
-intellij-install.sh
+./.intellij-install.sh
 
 sudo ./.cheat-install.sh
 

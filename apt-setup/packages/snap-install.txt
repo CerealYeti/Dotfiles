@@ -1,5 +1,0 @@
-wps-office
-mailspring
-firefox
-youtube-dl
-cheat
