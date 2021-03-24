@@ -17,6 +17,8 @@ gnucash
 pluma
 alacritty
 vim
+alsa
+alsa-tools
 latte-dock
 qt5-style-kvantum
 qt5-style-kvantum

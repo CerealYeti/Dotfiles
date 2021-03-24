@@ -13,3 +13,5 @@ grep "^[^#;]" ./packages/remove-packages.txt | xargs apt purge -y
 
 apt clean
 apt autoremove -y
+
+adduser $SUDO_USER audio

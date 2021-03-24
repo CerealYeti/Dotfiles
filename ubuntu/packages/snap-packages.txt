@@ -2,6 +2,5 @@
 firefox
 brave
 htop
-wps-office
 cheat
 ;mailspring
