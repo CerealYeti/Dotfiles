@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
-grep "^[^#;]" ./packages/needed-ppa.txt | xargs add-apt-repository -y 
-
+grep "^[^#;]" ./packages/needed-ppa.txt | while read line
+do 
+    add-apt-repository $line
+done
 apt update
 apt upgrade -y
 
