@@ -1,3 +1,0 @@
-#use '#' or ';' to comment out ppa's that you don't want added
-ppa:mmstick76/alacritty
-ppa:papirus/papirus
