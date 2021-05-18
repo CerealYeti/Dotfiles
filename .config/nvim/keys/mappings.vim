@@ -1,3 +1,5 @@
+let mapleader=" " " map leader to `
+
 " better nav for completions
 inoremap <expr> <C-j> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
