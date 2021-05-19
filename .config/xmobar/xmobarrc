@@ -1,0 +1,28 @@
+Config { font = "xft:Hack Nerd Font:weight=bold:pixelsize=14:antialias=true:hinting=true"
+       , additionalFonts = ["xft:Hack Nerd Font Mono:pixelsize=14"]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , position = Top
+       , lowerOnStart = True
+       , persistent = True
+       , hideOnStart = False
+       , iconRoot = "$HOME/.xmonad/xpm/" == default: "."
+       , allDesktops = True
+       , commands = [
+                      -- Time and Date
+                      Run Date " %b %d %Y - (%I:%M %P) " "date" 50
+                      -- Network Information
+                    , Run DynNetwork ["-t", " up: <rx>  dwn: <tx> ", "-S", "true"] 20
+                      -- Memory usage
+                    , Run Memory ["-t", " mem: <used>M (<usedration>%) "] 20
+                      -- Cpu usage
+                    , Run Cpu ["-t", " cpu: (<total>%) ", "-h", "red"] 20
+                      -- Disk Space
+                    , Run DiskU [("/", " disk: <free> free ")] [] 60
+                      -- Kernel Info
+                    , Run Com "uname" ["-r"] "" 0 
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=haskell_20.xpm/> | }{ | %uname% | %cpu% | %memory% | %disku% | %dynnetwork% | %date "
+       }
