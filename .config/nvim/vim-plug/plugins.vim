@@ -22,8 +22,8 @@ Plug 'frazrepo/vim-rainbow'
 " Better syntax support
 Plug 'sheerun/vim-polyglot'
 
-" Color theme
-Plug 'altercation/vim-colors-solarized'
+" Color Scheme
+Plug 'flazz/vim-colorschemes'
 
 " Install file icons in NERDTree
 Plug 'ryanoasis/vim-devicons'

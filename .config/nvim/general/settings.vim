@@ -45,10 +45,8 @@ set whichwrap+=<,>,h,l              " see above
 set formatoptions-=cro              " no more comment continuations please
 set notimeout                       " really don't like leader key to timeout
 
-"color scheme stuff
-set background=light	              "tell vim the background is a certain color
-colorscheme solarized
-set t_Co=256
+" colorscheme
+colorscheme molokai
 
 au! BufWritePost $MYVIMRC source %  " auto source when writing to init.vim
 
